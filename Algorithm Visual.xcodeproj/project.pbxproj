@@ -16,10 +16,11 @@
 		94826D001DE681780081B909 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94826CFF1DE681780081B909 /* Algorithm.swift */; };
 		94826D021DE681AE0081B909 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94826D011DE681AE0081B909 /* Action.swift */; };
 		94826D041DE685F70081B909 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94826D031DE685F70081B909 /* Entity.swift */; };
-		94826D071DE6907E0081B909 /* GraphScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94826D061DE6907E0081B909 /* GraphScene.swift */; };
+		94826D071DE6907E0081B909 /* BarGraphScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94826D061DE6907E0081B909 /* BarGraphScene.swift */; };
 		94BC13121DE732DB00FF39F1 /* BubbleSortAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC13111DE732DB00FF39F1 /* BubbleSortAlgorithm.swift */; };
 		94E080701DE760DF00BC54BA /* Array+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E0806F1DE760DF00BC54BA /* Array+Util.swift */; };
 		94E080721DE78AC300BC54BA /* MergeSortAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E080711DE78AC300BC54BA /* MergeSortAlgorithm.swift */; };
+		94E080751DE8E79000BC54BA /* QuickSortAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E080741DE8E79000BC54BA /* QuickSortAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +35,11 @@
 		94826CFF1DE681780081B909 /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
 		94826D011DE681AE0081B909 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		94826D031DE685F70081B909 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		94826D061DE6907E0081B909 /* GraphScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphScene.swift; sourceTree = "<group>"; };
+		94826D061DE6907E0081B909 /* BarGraphScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraphScene.swift; sourceTree = "<group>"; };
 		94BC13111DE732DB00FF39F1 /* BubbleSortAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSortAlgorithm.swift; sourceTree = "<group>"; };
 		94E0806F1DE760DF00BC54BA /* Array+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Util.swift"; sourceTree = "<group>"; };
 		94E080711DE78AC300BC54BA /* MergeSortAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSortAlgorithm.swift; sourceTree = "<group>"; };
+		94E080741DE8E79000BC54BA /* QuickSortAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSortAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		94826CE91DE67ED40081B909 /* Algorithm Visual */ = {
 			isa = PBXGroup;
 			children = (
+				94E080761DE8E85500BC54BA /* Quick Sort */,
 				94E080731DE78AC800BC54BA /* Merge Sort */,
 				94BC13101DE732C500FF39F1 /* Bubble Sort */,
 				94826D051DE6903C0081B909 /* Scenes */,
@@ -99,7 +102,7 @@
 		94826D051DE6903C0081B909 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				94826D061DE6907E0081B909 /* GraphScene.swift */,
+				94826D061DE6907E0081B909 /* BarGraphScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -118,6 +121,14 @@
 				94E080711DE78AC300BC54BA /* MergeSortAlgorithm.swift */,
 			);
 			name = "Merge Sort";
+			sourceTree = "<group>";
+		};
+		94E080761DE8E85500BC54BA /* Quick Sort */ = {
+			isa = PBXGroup;
+			children = (
+				94E080741DE8E79000BC54BA /* QuickSortAlgorithm.swift */,
+			);
+			name = "Quick Sort";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94826D071DE6907E0081B909 /* GraphScene.swift in Sources */,
+				94826D071DE6907E0081B909 /* BarGraphScene.swift in Sources */,
 				94826CEF1DE67ED40081B909 /* DetailViewController.swift in Sources */,
+				94E080751DE8E79000BC54BA /* QuickSortAlgorithm.swift in Sources */,
 				94826D001DE681780081B909 /* Algorithm.swift in Sources */,
 				94826D041DE685F70081B909 /* Entity.swift in Sources */,
 				94E080721DE78AC300BC54BA /* MergeSortAlgorithm.swift in Sources */,

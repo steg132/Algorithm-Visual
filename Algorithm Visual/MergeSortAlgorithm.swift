@@ -18,10 +18,10 @@ class MergeSortAlgorithm: SortAlgorithm {
     init(size: Int) {
         assert(size > 2)
         data = MergeSortAlgorithm.generateData(size: size)
-        shuffleData()
+        resetData()
     }
 
-    func shuffleData() {
+    func resetData() {
         for _ in 1...10 {
             data = data.sorted(by: BubbleSortAlgorithm.randomComparison )
         }

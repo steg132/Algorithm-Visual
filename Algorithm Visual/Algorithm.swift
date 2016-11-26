@@ -14,7 +14,7 @@ protocol Algorithm {
 
     func step() -> [Action]?
 
-    func shuffleData()
+    func resetData()
 }
 
 protocol SortAlgorithm: Algorithm {

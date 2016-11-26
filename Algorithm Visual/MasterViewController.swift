@@ -12,8 +12,9 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     let entries: [(algorithm: (Int) -> Algorithm, name: String, size: Int, rate: Double)] = [
-        (algorithm: BubbleSortAlgorithm.init, name: "Bubble Sort", size: 50, rate: 0.5),
-        (algorithm: MergeSortAlgorithm.init, name: "Merge Sort", size: 350, rate: 0.75)
+        (algorithm: BubbleSortAlgorithm.init, name: "Bubble Sort", size: 50, rate: 0.1),
+        (algorithm: MergeSortAlgorithm.init, name: "Merge Sort", size: 350, rate: 0.1),
+        (algorithm: QuickSortAlgorithm.init, name: "Quick Sort", size: 50, rate: 1.0)
     ]
 
     override func viewDidLoad() {
@@ -62,6 +63,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.selectionStyle = .blue
         let entry = entries[indexPath.row]
 
         cell.textLabel?.text = entry.name

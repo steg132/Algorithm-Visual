@@ -23,10 +23,10 @@ class BubbleSortAlgorithm: SortAlgorithm {
         assert(size > 2)
         data = BubbleSortAlgorithm.generateData(size: size)
         state = .sorting(index: 1)
-        shuffleData()
+        resetData()
     }
 
-    func shuffleData() {
+    func resetData() {
         state = .sorting(index: 1)
         for _ in 1...10 {
             data = data.sorted(by: BubbleSortAlgorithm.randomComparison )

@@ -12,5 +12,8 @@ enum Action {
     case swap(Int, Int)
     case move(Int, Int)
     case merge(start: Int, indices:[Int])
+
+    case highlight(Int)
+    case clearHighlighted
 }
 

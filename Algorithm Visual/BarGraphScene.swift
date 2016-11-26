@@ -15,7 +15,8 @@ class BarGraphScene: SKScene {
 
     var rate: Double = 1.0
 
-    var bars: [SKNode] = []
+    var bars: [SKSpriteNode] = []
+    private var highlightedBars = [SKSpriteNode]()
 
     private var dataCount: Int { return algorithm.data.count }
 
@@ -38,14 +39,11 @@ class BarGraphScene: SKScene {
     func createNodes() {
         bars = bars.filter() { $0.removeFromParent(); return false }
         let barWidth: CGFloat = (size.width / CGFloat(dataCount))
-        let saturation = CGFloat(arc4random_uniform(75) + 25) / 100.0
-        let brightness = CGFloat(arc4random_uniform(30) + 70) / 100.0
 
 
         for (index, value) in algorithm.data.enumerated() {
             let barHeight = size.height * CGFloat(value)
-            let color = UIColor(hue: CGFloat(value), saturation: saturation,
-                                brightness: brightness, alpha: 1.0)
+            let color = colorForBar(value: value)
             let node = SKSpriteNode(color: color,
                                     size: CGSize(width: barWidth, height: barHeight))
             node.anchorPoint = CGPoint(x: 0.5, y: 0)
@@ -92,9 +90,15 @@ class BarGraphScene: SKScene {
                 bars[s1] = right
                 bars[s2] = left
             case .move(let start, let end):
-                bars[start].run(SKAction.move(to: barPosition(at: end), duration: 1.0 * rate))
+                bars.insert(bars.remove(at:start), at: end)
+                for index in start...end {
+                    let bar = bars[index]
+                    bar.run(SKAction.move(to: barPosition(at: index), duration: 1.0 * rate))
+                }
+                nextStep = currentTime + 1.0 * rate
+
             case .merge(let start, let indices):
-                var newBars = [SKNode]()
+                var newBars = [SKSpriteNode]()
                 for index in indices {
                     let bar = bars[index]
                     newBars.append(bar)
@@ -106,7 +110,31 @@ class BarGraphScene: SKScene {
 
                 nextStep = currentTime + 1.0 * rate
 
+            case .highlight(let index):
+                let bar = bars[index]
+                bar.color = highlightColor
+                highlightedBars.append(bar)
+            case .clearHighlighted:
+                for bar in highlightedBars {
+                    if let index = bars.index(of: bar) {
+                        bar.color = colorForBar(value: algorithm.data[index])
+                    }
+                }
+                highlightedBars.removeAll()
+
             }
         }
     }
+
+    private let saturation = CGFloat(arc4random_uniform(75) + 25) / 100.0
+    private let brightness = CGFloat(arc4random_uniform(30) + 70) / 100.0
+
+    private func colorForBar(value: Float) -> UIColor {
+        return UIColor(hue: CGFloat(value), saturation: saturation,
+                       brightness: brightness, alpha: 1.0)
+    }
+    private var highlightColor: UIColor {
+        return UIColor.white
+    }
+
 }
