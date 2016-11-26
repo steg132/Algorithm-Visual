@@ -13,8 +13,8 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     let entries: [(algorithm: (Int) -> Algorithm, name: String, size: Int, rate: Double)] = [
         (algorithm: BubbleSortAlgorithm.init, name: "Bubble Sort", size: 50, rate: 0.1),
-        (algorithm: MergeSortAlgorithm.init, name: "Merge Sort", size: 350, rate: 0.1),
-        (algorithm: QuickSortAlgorithm.init, name: "Quick Sort", size: 50, rate: 1.0)
+        (algorithm: MergeSortAlgorithm.init, name: "Merge Sort", size: 350, rate: 0.2),
+        (algorithm: QuickSortAlgorithm.init, name: "Quick Sort", size: 200, rate: 0.20)
     ]
 
     override func viewDidLoad() {

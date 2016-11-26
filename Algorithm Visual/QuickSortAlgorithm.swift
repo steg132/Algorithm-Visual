@@ -43,16 +43,34 @@ class QuickSortAlgorithm : SortAlgorithm {
 
         switch state {
         case .selectPivot:
-            guard opList.count > 0 else {
+            guard let op = opList.popLast() else {
                 state = .sorted
                 return [.clearHighlighted]
             }
-            let op = opList.removeFirst()
             actions.append(.clearHighlighted)
+
+            if op.end - op.start > 2 {
+                // TODO: pick a pivot
+
+                let first = op.start
+                let last = op.end
+                let mid = (last - first) / 2 + first
+
+                let mean = (data[first] + data[mid] + data[last]) / 3.0
+
+                let pivot: Int
+                if abs(mean - data[first]) < abs(mean - data[mid]) {
+                    if abs(mean - data[first]) < abs(mean - data[last]) { pivot = first
+                    } else { pivot = last }
+                } else {
+                    if abs(mean - data[mid]) < abs(mean - data[last]) { pivot = mid
+                    } else { pivot = last }
+                }
+
+                actions.append(.move(pivot, op.end))
+                data.insert(data.remove(at:pivot), at: op.end)
+            }
             actions.append(.highlight(op.end))
-
-            // TODO: pick a pivot
-
             state = .sorting(op: op, currentIndex: op.start, pivotIndex: op.end)
 
         case .sorting(let op, let currentIndex, let pivotIndex):
@@ -69,11 +87,11 @@ class QuickSortAlgorithm : SortAlgorithm {
             }
 
             if newIndex >= newPovot {
-                if op.start < newPovot - 1 {
-                    opList.append((start:op.start, end: newPovot - 1))
-                }
                 if newPovot + 1 < op.end {
                     opList.append((start:newPovot + 1, end: op.end))
+                }
+                if op.start < newPovot - 1 {
+                    opList.append((start:op.start, end: newPovot - 1))
                 }
                 state = .selectPivot
             } else {
